@@ -7,7 +7,7 @@ function setup() {
 }
 
 function draw() {
-  noLoop();
+  // noLoop();
   frameRate(1);
   background(255,245,210);
   noiseSeed(map(random(), 0, 1, 0, 1000));

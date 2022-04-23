@@ -27,7 +27,7 @@ class Grid {
   }
   newX2() {
     this.x2 = 0;
-    while (abs(this.x1 - this.x2) < 50 || this.x2 == 0) {
+    while (abs(this.x1 - this.x2) < width / 10 || this.x2 == 0) {
       this.x2 = map(random(), 0, 1, ranOff, width - ranOff);
     }
   }

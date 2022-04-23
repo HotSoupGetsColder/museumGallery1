@@ -29,7 +29,7 @@ function draw() {
   // noLoop();
   background(cBG);
 
-  let numShapes = 30;
+  let numShapes = 5;
   let offOff = 0.035
   plotArcGrid(x, y, cPri, numShapes, xoff, yoff, 4.5/5);
   plotArcGrid(x, y, cSec, numShapes, xoff+offOff, yoff+offOff, 6/10, 12/10 * PI, CHORD);
@@ -37,8 +37,7 @@ function draw() {
 
 }
 
-function plotArcGrid(x, y, col, numX, xoff, yoff,
-                      radRatio, angle = PI, arcType = PIE) {
+function plotArcGrid(x, y, col, numX, xoff, yoff, radRatio, angle = PI, arcType = PIE) {
   let spacing = width / numX
   let rad = spacing * radRatio;
   fill(col);

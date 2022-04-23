@@ -38,7 +38,6 @@ class Shaky {
     // }
     push();
     translate(this.x, this.y);
-    let noiseOff = random(1000);
     for (let i = 0; i < this.pt.length; i++) {
       if (i == this.pt.length - 1) {
         line(this.pt[i].x, this.pt[i].y, this.pt[0].x, this.pt[0].y)

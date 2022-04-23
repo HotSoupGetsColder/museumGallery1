@@ -1,5 +1,6 @@
 let shakys = [];
 let scratches = [];
+let flower = {};
 
 function createShakys(n) {
   for (let i = 0; i < n; i++) {
@@ -55,6 +56,7 @@ function setup() {
   scratches = [];
   createShakys(5);
   createSpacedScratches(shakys, 170, width * 25/1000, width * 35/1000);
+  // flower = new Flower(100, 100, 100);
 }
 
 function draw() {
