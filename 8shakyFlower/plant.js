@@ -9,7 +9,8 @@ class Plant {
 
   show(lcol, lwt, fcol, fwt, ffill) {
     this.leaf.show(lcol, lwt);
-    this.flower.showShake(fcol, fwt, ffill);
+    let tiltAng = this.leaf.step[this.leaf.step.length - 1].tAng
+    this.flower.show(fcol, fwt, ffill, tiltAng);
   }
 
   update() {

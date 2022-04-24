@@ -34,17 +34,21 @@ class Flower {
   //   pop();
   // }
 
-  showShake(fcol, fwt, ffill) {
+  show(fcol, fwt, ffill, tiltAng) {
+    this.showPetals(fcol, fwt, ffill, tiltAng);
+    this.showStamen();
+  }
+
+  showPetals(fcol, fwt, ffill, tiltAng) {
     push();
     fill(ffill);
     stroke(fcol);
     strokeWeight(fwt);
     translate(this.x, this.y);
-    angleMode(RADIANS);
-    rotate(this.ang);
+    // scale(1, 0.6);
+    rotate(tiltAng);
     beginShape();
     let noiseOff = random(1000);
-    angleMode(DEGREES);
     for (let i = 0; i < this.pt.length; i++) {
       let r = this.pt[i].r
       // r *= random(0.95, 1.05);
@@ -56,6 +60,7 @@ class Flower {
     }
     endShape(CLOSE);
     pop();
+    // this.showGuides();
   }
 
   showGuides() {
@@ -66,7 +71,15 @@ class Flower {
     noFill();
     strokeWeight(1);
     circle(this.x, this.y, this.r);
+    let clen = 10;
+    line(this.x - clen, this.y, this.x + clen, this.y);
+    line(this.x, this.y - clen, this.x, this.y + clen);
+
     pop();
+  }
+
+  showStamen() {
+
   }
 
   moveTo(px, py) {
