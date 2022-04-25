@@ -18,7 +18,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   console.log({width: width, height: height});
   bg = {col: color('rgb(71, 19, 9)')}
-  flr = {col: color('rgb(255, 255, 255)'), fill: bg.col, wt: 1};
+  flr = {col: color('rgb(255, 255, 255)'), fill: color('rgb(167, 124, 28)'), wt: 1};
   stem = {col: color('rgb(255, 255, 255)'), wt: 1};
   for (let i = 0; i < 5; i++) {
     let tol = 0.50;

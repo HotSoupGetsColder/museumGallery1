@@ -29,7 +29,7 @@ function draw() {
   // noLoop();
   background(cBG);
 
-  let numShapes = 5;
+  let numShapes = 3;
   let offOff = 0.035
   plotArcGrid(x, y, cPri, numShapes, xoff, yoff, 4.5/5);
   plotArcGrid(x, y, cSec, numShapes, xoff+offOff, yoff+offOff, 6/10, 12/10 * PI, CHORD);
