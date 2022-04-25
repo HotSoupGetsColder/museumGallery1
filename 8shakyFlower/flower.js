@@ -5,6 +5,7 @@ class Flower {
     this.r = r;
     this.ang = random(TWO_PI);
     this.generatePetalPoints();
+    this.generateStamen(floor(random(2, 5)));
   }
 
   generatePetalPoints() {
@@ -12,8 +13,8 @@ class Flower {
     angleMode(DEGREES);
     let i = 0;
     for (let phi = 0; phi < 360; phi += 1) {
-      let r = ((40 * pow(abs(sin(phi * 8/2)), 1)) + 150)
-      let bumpiness = 1 * pow(r/130, 5) * sin(phi * 19);
+      let r = ((120 * pow(abs(sin(phi * 8/2)), 0.3)) + 150)
+      let bumpiness = 0.4 * pow(r/130, 4) * sin(phi * 24);
       r = r + bumpiness;
       r = r * this.r / 400;
       let x = r * cos(phi);
@@ -23,20 +24,30 @@ class Flower {
     }
   }
 
-  // show() {
-  //   push();
-  //   translate(this.x, this.y);
-  //   beginShape();
-  //   for (let i = 0; i < this.pt.length; i++) {
-  //     vertex(this.pt[i].x, this.pt[i].y);
-  //   }
-  //   endShape();
-  //   pop();
-  // }
+  generateStamen(numStamen) {
+    this.stamen = [];
+    for (let i = 0; i < numStamen; i++) {
+      let r = this.r / 4;
+      let thetaTol = 60;
+      let theta = random(90 - thetaTol, 90 + thetaTol);
+      angleMode(DEGREES);
+      let x = r * cos(theta);
+      let y = -r * sin(theta);
+      this.stamen[i] = new Stamen(x, y);
+    }
+  }
 
   show(fcol, fwt, ffill, tiltAng) {
+    push();
+    translate(this.x, this.y);
+    angleMode(DEGREES);
+    rotate(tiltAng);
     this.showPetals(fcol, fwt, ffill, tiltAng);
-    this.showStamen();
+    rotate(-tiltAng);
+    for (let i = 0; i < this.stamen.length; i ++) {
+      this.stamen[i].show(0, 0);
+    }
+    pop();
   }
 
   showPetals(fcol, fwt, ffill, tiltAng) {
@@ -44,9 +55,7 @@ class Flower {
     fill(ffill);
     stroke(fcol);
     strokeWeight(fwt);
-    translate(this.x, this.y);
     // scale(1, 0.6);
-    rotate(tiltAng);
     beginShape();
     let noiseOff = random(1000);
     for (let i = 0; i < this.pt.length; i++) {
@@ -74,12 +83,7 @@ class Flower {
     let clen = 10;
     line(this.x - clen, this.y, this.x + clen, this.y);
     line(this.x, this.y - clen, this.x, this.y + clen);
-
     pop();
-  }
-
-  showStamen() {
-
   }
 
   moveTo(px, py) {
