@@ -13,7 +13,7 @@ class Flower {
     angleMode(DEGREES);
     let i = 0;
     for (let phi = 0; phi < 360; phi += 1) {
-      let r = ((120 * pow(abs(sin(phi * 8/2)), 0.3)) + 150)
+      let r = ((120 * pow(abs(sin(phi * 7/2)), 0.3)) + 150)
       let bumpiness = 0.4 * pow(r/130, 4) * sin(phi * 24);
       r = r + bumpiness;
       r = r * this.r / 400;

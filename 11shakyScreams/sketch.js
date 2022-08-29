@@ -1,4 +1,4 @@
-let bush;
+let face;
 
 // Changes window size
 function windowResized() {
@@ -7,14 +7,14 @@ function windowResized() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  bush = new Bush;
+  face = new Face(width/2, height/2, 100);
 }
 
 function draw() {
-  frameRate(1);
-  background(color('rgb(91, 119, 82)'));
+  frameRate(25);
+  background(color('rgb(0, 0, 0)'));
 
-  strokeWeight(2);
+  strokeWeight(1);
   stroke(255);
-  bush.show(width/2, height/2);
+  face.show();
 }

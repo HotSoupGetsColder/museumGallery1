@@ -32,7 +32,7 @@ function setup() {
 }
 
 function draw() {
-  frameRate(25);
+  frameRate(12);
   background(bg.col);
   angleMode(DEGREES);
 

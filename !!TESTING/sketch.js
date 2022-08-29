@@ -1,26 +1,25 @@
-function drawStripes(n) {
-  let spacing = width / (n + 1);
-  for (let i = 0; i < n; i++) {
-    line(spacing*(i+1), 0, spacing*(i+1), height);
-  }
+let v1;
+let v2;
+
+function shake() {
+  let v = p5.Vector.random2D().setMag(10);
+  v2 = v1.copy().add(v);
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  v1 = createVector(30, 40);
+  v2 = v1;
 }
 
 function draw() {
-  background(color('hsl(113, 29%, 18%)'))
+  frameRate(60);
+  background(color('rgb(233, 199, 237)'));
+  translate(width/2, height/2);
   strokeWeight(5);
-  stroke(color('hsl(113, 16%, 50%)'));
-  drawStripes(20);
+  stroke(255);
+  point(0, 0);
 
-  push();
-  fill(color('rgb(255, 205, 106)'))
-  circle(width/2, height/2, width/2);
-  erase();
-  circle(width/2, height/2, width/4);
-  noErase();
-  pop();
-
+  shake();
+  line(0, 0, v2.x, v2.y);
 }
